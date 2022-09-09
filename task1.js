@@ -1,3 +1,19 @@
+/* let playerInfo = {
+  playerName: "Markus"
+  level: 1
+  coinsCount: 18
+  livesCount: 4
+}
+
+let playerArmour = {
+  weaponLongSword: 3
+  weaponWarHammer: 40
+  weaponBattleAxe: 30
+  weaponArmour: 4
+}
+*/
+
+
 let playerName = "Markus";
 document.getElementById("playerName").innerHTML = playerName;
 
