@@ -7,13 +7,13 @@ document.getElementById("coinsCount").innerHTML = coinsCount;
 let livesCount = 3;
 document.getElementById("livesCount").innerHTML = livesCount;
 
-let weaponLongSword = 0;
+let weaponLongSword = 12;
 document.getElementById("weaponLongSword").innerHTML = weaponLongSword;
 
-let weaponWarHammer = 2;
+let weaponWarHammer = 10;
 document.getElementById("weaponWarHammer").innerHTML = weaponWarHammer;
 
-let weaponBattleAxe = 0;
+let weaponBattleAxe = 3;
 document.getElementById("weaponBattleAxe").innerHTML = weaponBattleAxe;
 
 let weaponArmour = 2;
@@ -48,8 +48,29 @@ if(coinsCount === 0){
 }
 document.getElementById("coinsCount").innerHTML = textCoins;
 
+if(weaponLongSword >= 10){
+  document.getElementById("weaponLongSword").style.color = "gold";
+}else{
+  document.getElementById("weaponLongSword").style.color = "red";
+}
+if(weaponWarHammer >= 10){
+  document.getElementById("weaponWarHammer").style.color = "gold";
+}else{
+  document.getElementById("weaponWarHammer").style.color = "red";
+}
+if(weaponBattleAxe >= 10){
+  document.getElementById("weaponBattleAxe").style.color = "gold";
+}else{
+  document.getElementById("weaponBattleAxe").style.color = "red";
+}
+if(weaponArmour >= 10){
+  document.getElementById("weaponArmour").style.color = "gold";
+}else{
+  document.getElementById("weaponArmour").style.color = "red";
+}
+
 if(weaponTotal >= 10){
-  weaponText = `Your weapons are in high level: ${weaponTotal}`;
+  weaponText = `Your weapons are in level: ${weaponTotal}`;
   document.getElementById("weaponTotal").style.color = "gold";
 }else{
   weaponText = `Your weapons are only in level: ${weaponTotal}`;
