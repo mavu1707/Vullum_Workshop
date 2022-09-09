@@ -1,4 +1,4 @@
- let playerInfo = {
+ /*let playerInfo = {
   playerName: "Markus",
   level: 1,
   coinsCount: 18,
@@ -11,8 +11,8 @@ let playerArmour = {
   weaponBattleAxe: 30,
   weaponArmour: 4
 }
-
-document.getElementById("playerName").innerHTML = playerInfo[0];
+*/
+//document.getElementById("playerName").innerHTML = playerInfo[0];
 
 let coinsCount = 18;
 document.getElementById("coinsCount").innerHTML = coinsCount;
@@ -21,7 +21,7 @@ let livesCount = 3;
 document.getElementById("livesCount").innerHTML = livesCount;
 
 let weaponLongSword = 12;
-document.getElementById("weaponLongSword").innerHTML = weaponLongSword;
+//document.getElementById("weaponLongSword").innerHTML = weaponLongSword;
 
 let weaponWarHammer = 10;
 document.getElementById("weaponWarHammer").innerHTML = weaponWarHammer;
@@ -31,10 +31,10 @@ document.getElementById("weaponBattleAxe").innerHTML = weaponBattleAxe;
 
 let weaponArmour = 2;
 document.getElementById("weaponArmour").innerHTML = weaponArmour;
-
+/*
 let pointsCount = (coinsCount * 5) + (weaponLongSword * 5) + (weaponWarHammer * 15) + (weaponBattleAxe * 20) + (weaponArmour * 25);
 document.getElementById("pointsCount").innerHTML = pointsCount;
-
+*/
 let level = 1;
 document.getElementById("playerLevel").innerHTML = level;
 
@@ -47,7 +47,7 @@ function hudHide(){ //Tatt funksjonen fra w3schools: https://www.w3schools.com/h
   }
 }
 let textCoins ="";
-let weaponTotal = weaponLongSword + weaponWarHammer + weaponBattleAxe + weaponArmour;
+//let weaponTotal = weaponLongSword + weaponWarHammer + weaponBattleAxe + weaponArmour;
 let weaponText ="";
 let liveText ="";
 let weaponZeroText ="";
@@ -60,12 +60,13 @@ if(coinsCount === 0){
   document.getElementById("coinsCount").style.color = "gold";
 }
 document.getElementById("coinsCount").innerHTML = textCoins;
-
+/*
 if(weaponLongSword >= 10){
   document.getElementById("weaponLongSword").style.color = "gold";
 }else{
   document.getElementById("weaponLongSword").style.color = "red";
 }
+*/
 if(weaponWarHammer >= 10){
   document.getElementById("weaponWarHammer").style.color = "gold";
 }else{
@@ -81,7 +82,7 @@ if(weaponArmour >= 10){
 }else{
   document.getElementById("weaponArmour").style.color = "red";
 }
-
+/*
 if(weaponTotal >= 10){
   weaponText = `Your weapons are in level: ${weaponTotal}`;
   document.getElementById("weaponTotal").style.color = "gold";
@@ -90,7 +91,7 @@ if(weaponTotal >= 10){
   document.getElementById("weaponTotal").style.color = "red";
 }
 document.getElementById("weaponTotal").innerHTML = weaponText;
-
+*/
 if(livesCount <= 1){
   liveText = `You only have ${livesCount} life left`;
   document.getElementById("livesCount").style.color = "red";
@@ -99,16 +100,16 @@ if(livesCount <= 1){
   document.getElementById("livesCount").style.color = "gold";
 }
 
-if (weaponLongSword == 0){
-  
+if(weaponLongSword > 0){
+  document.getElementById("showhide").innerHTML += `
+  <tr>
+    <td><img src="longsword.png"></td>
+    <td>Level: <span id="weaponLongSword">${weaponLongSword}</span></td>
+  </tr>
+  `
+  if(weaponLongSword >= 10){
+    document.getElementById("weaponLongSword").style.color = "gold";
+  }else{
+    document.getElementById("weaponLongSword").style.color = "red";
+  }
 }
-if (weaponWarHammer == 0){
-
-}
-if (weaponBattleAxe == 0){
-
-}
-if (weaponArmour == 0){
-
-}
-
