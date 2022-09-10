@@ -1,44 +1,35 @@
- /*let playerInfo = {
-  playerName: "Markus",
-  level: 1,
-  coinsCount: 18,
-  livesCount: 4
+//Nøkkler
+const playerInfo = {
+  spillerNavn: "Markus",
+  liv: 5,
+  penger: 20,
+  level: 12
+}
+const playerWeapon = {
+  longSword: 10,
+  warHammer: 3,
+  battleAxe: 12,
+  armour: 7
 }
 
-let playerArmour = {
-  weaponLongSword: 3,
-  weaponWarHammer: 40,
-  weaponBattleAxe: 30,
-  weaponArmour: 4
-}
-*/
-//document.getElementById("playerName").innerHTML = playerInfo[0];
+//Regner ut poeng vi har i spillet
+let points = (playerInfo.penger * 5) + (playerWeapon.longSword * 5) + (playerWeapon.warHammer * 15) + (playerWeapon.battleAxe * 20) + (playerWeapon.armour * 25);
 
-let coinsCount = 18;
-document.getElementById("coinsCount").innerHTML = coinsCount;
+//Skrive ut variablene fra nøkklene
+document.getElementById("playerName").innerHTML = playerInfo.spillerNavn;
+document.getElementById("livesCount").innerHTML = playerInfo.liv;
+document.getElementById("coinsCount").innerHTML = playerInfo.penger;
+document.getElementById("playerLevel").innerHTML = playerInfo.level;
+document.getElementById("pointsCount").innerHTML = points;
 
-let livesCount = 3;
-document.getElementById("livesCount").innerHTML = livesCount;
+//tomme text strenger som senere blir fylt inn
+let textCoins ="";
+let weaponText ="";
+let liveText ="";
+let weaponZeroText ="";
 
-let weaponLongSword = 12;
-//document.getElementById("weaponLongSword").innerHTML = weaponLongSword;
-
-let weaponWarHammer = 10;
-document.getElementById("weaponWarHammer").innerHTML = weaponWarHammer;
-
-let weaponBattleAxe = 3;
-document.getElementById("weaponBattleAxe").innerHTML = weaponBattleAxe;
-
-let weaponArmour = 2;
-document.getElementById("weaponArmour").innerHTML = weaponArmour;
-/*
-let pointsCount = (coinsCount * 5) + (weaponLongSword * 5) + (weaponWarHammer * 15) + (weaponBattleAxe * 20) + (weaponArmour * 25);
-document.getElementById("pointsCount").innerHTML = pointsCount;
-*/
-let level = 1;
-document.getElementById("playerLevel").innerHTML = level;
-
-function hudHide(){ //Tatt funksjonen fra w3schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
+//Funkjson for å få armour opp og ned (Tatt funksjonen fra w3schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show)
+function hudHide(){
   var x = document.getElementById("showhide");
   if (x.style.display === "none"){
     x.style.display = "block";
@@ -46,70 +37,79 @@ function hudHide(){ //Tatt funksjonen fra w3schools: https://www.w3schools.com/h
     x.style.display = "none";
   }
 }
-let textCoins ="";
-//let weaponTotal = weaponLongSword + weaponWarHammer + weaponBattleAxe + weaponArmour;
-let weaponText ="";
-let liveText ="";
-let weaponZeroText ="";
 
-if(coinsCount === 0){
-  textCoins = `Go collect coins! you've only got ${coinsCount} coins`;
+//Funkjsoner for å endre farge på skriften
+if(playerInfo.penger === 0){
+  textCoins = `Go collect coins! coins: ${playerInfo.penger}`;
   document.getElementById("coinsCount").style.color = "red";
 }else{
-  textCoins = `you've got: ${coinsCount} coins`;
+  textCoins = `you've got: ${playerInfo.penger} coins`;
   document.getElementById("coinsCount").style.color = "gold";
 }
 document.getElementById("coinsCount").innerHTML = textCoins;
-/*
-if(weaponLongSword >= 10){
-  document.getElementById("weaponLongSword").style.color = "gold";
-}else{
-  document.getElementById("weaponLongSword").style.color = "red";
-}
-*/
-if(weaponWarHammer >= 10){
-  document.getElementById("weaponWarHammer").style.color = "gold";
-}else{
-  document.getElementById("weaponWarHammer").style.color = "red";
-}
-if(weaponBattleAxe >= 10){
-  document.getElementById("weaponBattleAxe").style.color = "gold";
-}else{
-  document.getElementById("weaponBattleAxe").style.color = "red";
-}
-if(weaponArmour >= 10){
-  document.getElementById("weaponArmour").style.color = "gold";
-}else{
-  document.getElementById("weaponArmour").style.color = "red";
-}
-/*
-if(weaponTotal >= 10){
-  weaponText = `Your weapons are in level: ${weaponTotal}`;
-  document.getElementById("weaponTotal").style.color = "gold";
-}else{
-  weaponText = `Your weapons are only in level: ${weaponTotal}`;
-  document.getElementById("weaponTotal").style.color = "red";
-}
-document.getElementById("weaponTotal").innerHTML = weaponText;
-*/
-if(livesCount <= 1){
-  liveText = `You only have ${livesCount} life left`;
+
+if(playerInfo.liv <= 1){
+  liveText = `You only have ${playerInfo.liv} live left`;
   document.getElementById("livesCount").style.color = "red";
 }else{
-  liveText = `You have ${livesCount} lifes`;
+  liveText = `You have ${playerInfo.liv} lives`;
   document.getElementById("livesCount").style.color = "gold";
 }
+document.getElementById("livesCount").innerHTML = liveText;
 
-if(weaponLongSword > 0){
+//Funkjsoner som gjør at hvis våpen er 0 skal det ikke komme opp
+if(playerWeapon.longSword > 0){
   document.getElementById("showhide").innerHTML += `
   <tr>
     <td><img src="longsword.png"></td>
-    <td>Level: <span id="weaponLongSword">${weaponLongSword}</span></td>
+    <td>Level: <span id="weaponLongSword">${playerWeapon.longSword}</span></td>
   </tr>
   `
-  if(weaponLongSword >= 10){
+  if(playerWeapon.longSword >= 10){
     document.getElementById("weaponLongSword").style.color = "gold";
   }else{
     document.getElementById("weaponLongSword").style.color = "red";
+  }
+}
+
+if(playerWeapon.warHammer > 0){
+  document.getElementById("showhide").innerHTML += `
+  <tr>
+    <td><img src="warhammer.png"></td>
+    <td>Level: <span id="weaponWarHammer">${playerWeapon.warHammer}</span></td>
+  </tr>
+  `
+  if(playerWeapon.warHammer >= 10){
+    document.getElementById("weaponWarHammer").style.color = "gold";
+  }else{
+    document.getElementById("weaponWarHammer").style.color = "red";
+  }
+}
+
+if(playerWeapon.battleAxe > 0){
+  document.getElementById("showhide").innerHTML += `
+  <tr>
+    <td><img src="battleaxe.png"></td>
+    <td>Level: <span id="weaponBattleAxe">${playerWeapon.battleAxe}</span></td>
+  </tr>
+  `
+  if(playerWeapon.battleAxe >= 10){
+    document.getElementById("weaponBattleAxe").style.color = "gold";
+  }else{
+    document.getElementById("weaponBattleAxe").style.color = "red";
+  }
+}
+
+if(playerWeapon.armour > 0){
+  document.getElementById("showhide").innerHTML += `
+  <tr>
+    <td><img src="armour.png"></td>
+    <td>Level: <span id="weaponArmour">${playerWeapon.armour}</span></td>
+  </tr>
+  `
+  if(playerWeapon.armour >= 10){
+    document.getElementById("weaponArmour").style.color = "gold";
+  }else{
+    document.getElementById("weaponArmour").style.color = "red";
   }
 }
