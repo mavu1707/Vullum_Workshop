@@ -7,40 +7,40 @@ const playerInfo = {
 }
 const armory = [
   {
-    weaponName: "Long Sword",
+    weaponName: "LongSword",
     weaponIcon: `<td><img src="longsword.png"></td>`,
     weaponLevel: 10,
     weaponValue: 5
   },
   {
-    weaponName: "War Hammer",
+    weaponName: "WarHammer",
     weaponIcon: `<td><img src="warhammer.png"></td>`,
-    weaponLevel: 10,
+    weaponLevel: 1,
     weaponValue: 15
   },
   {
-    weaponName: "Battle Axe",
+    weaponName: "BattleAxe",
     weaponIcon: `<td><img src="battleaxe.png"></td>`,
-    weaponLevel: 3,
+    weaponLevel: 10,
     weaponValue: 20
   },
   {
     weaponName:  "Armour",
     weaponIcon: `<td><img src="armour.png"></td>`,
-    weaponLevel: 12,
+    weaponLevel: 1,
     weaponValue: 25
   }
 ]
 
 //Regner ut poeng vi har i spillet
-//let points = (armory.weaponLevel*armory.weaponValue)
+let points = (armory[0].weaponLevel*armory[0].weaponValue) + (armory[1].weaponLevel*armory[1].weaponValue) + (armory[2].weaponLevel*armory[2].weaponValue) + (armory[3].weaponLevel*armory[3].weaponValue) + (playerInfo.penger)
 
 //Skrive ut variablene fra nøkklene
 document.getElementById("playerName").innerHTML = playerInfo.spillerNavn;
 document.getElementById("livesCount").innerHTML = playerInfo.liv;
 document.getElementById("coinsCount").innerHTML = playerInfo.penger;
 document.getElementById("playerLevel").innerHTML = playerInfo.level;
-//document.getElementById("pointsCount").innerHTML = points;
+document.getElementById("pointsCount").innerHTML = points;
 
 //tomme text strenger som senere blir fylt inn
 let textCoins ="";
@@ -55,13 +55,12 @@ armory.map((test) => {
   armoryHTML += `<tr>
  <td><span id="test">${test.weaponName}</span></td>
  <td>${test.weaponIcon}</td>
- <td>Level: ${test.weaponLevel}</td>
+ <td id="lvl">Level: ${test.weaponLevel}</td>
  </tr>`
  document.getElementById("showhide").innerHTML = armoryHTML;
-  
  if(test.weaponLevel >= 10){
-    document.getElementById("showhide").style.color = "gold"; //hvilken id skal bli brukt og hvorfor?
-  }
+   document.getElementById("test").style.color = "gold";
+ }
  }
 })
 
