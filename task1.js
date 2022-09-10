@@ -1,4 +1,4 @@
-//Nøkkler
+//En array med ulike objekter som inneholder ulike nøkkler
 const playerInfo = {
   spillerNavn: "Markus",
   liv: 5,
@@ -9,7 +9,7 @@ const armory = [
   {
     weaponName: "Long Sword",
     weaponIcon: `<td><img src="longsword.png"></td>`,
-    weaponLevel: 0,
+    weaponLevel: 10,
     weaponValue: 5
   },
   {
@@ -21,7 +21,7 @@ const armory = [
   {
     weaponName: "Battle Axe",
     weaponIcon: `<td><img src="battleaxe.png"></td>`,
-    weaponLevel: 0,
+    weaponLevel: 3,
     weaponValue: 20
   },
   {
@@ -33,7 +33,7 @@ const armory = [
 ]
 
 //Regner ut poeng vi har i spillet
-//let points = (playerInfo.penger * 5) + (playerWeapon.longSword * 5) + (playerWeapon.warHammer * 15) + (playerWeapon.battleAxe * 20) + (playerWeapon.armour * 25);
+//let points = (armory.weaponLevel*armory.weaponValue)
 
 //Skrive ut variablene fra nøkklene
 document.getElementById("playerName").innerHTML = playerInfo.spillerNavn;
@@ -49,21 +49,22 @@ let liveText ="";
 let weaponZeroText ="";
 let armoryHTML = "";
 
+//Bruker .map for å finne og skrive ut nøkklene til spillet
 armory.map((test) => {
- 
+ if(test.weaponLevel > 0){
+  armoryHTML += `<tr>
+ <td><span id="test">${test.weaponName}</span></td>
+ <td>${test.weaponIcon}</td>
+ <td>Level: ${test.weaponLevel}</td>
+ </tr>`
+ document.getElementById("showhide").innerHTML = armoryHTML;
+  
+ if(test.weaponLevel >= 10){
+    document.getElementById("showhide").style.color = "gold"; //hvilken id skal bli brukt og hvorfor?
+  }
+ }
 })
-/*
-armory.map((test) => {
-  armoryHTML += `
-  <tr>
-  <td><span id="weapon">${test.weaponName}</span></td>
-  <td>${test.weaponIcon}</td>
-  <td>Level: ${test.weaponLevel}</td>
-  </tr>
-  `
-  document.getElementById("showhide").innerHTML = armoryHTML;
-})
-*/
+
 //Funkjson for å få armour opp og ned (Tatt funksjonen fra w3schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show)
 function hudHide(){
   var x = document.getElementById("showhide");
@@ -92,11 +93,6 @@ if(playerInfo.liv <= 1){
   document.getElementById("livesCount").style.color = "gold";
 }
 document.getElementById("livesCount").innerHTML = liveText;
-
-
-
-
-
 
 /*Funkjsoner som gjør at hvis våpen er 0 skal det ikke komme opp
 if(playerWeapon.longSword > 0){
