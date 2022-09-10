@@ -5,29 +5,65 @@ const playerInfo = {
   penger: 20,
   level: 12
 }
-const playerWeapon = {
-  longSword: 10,
-  warHammer: 3,
-  battleAxe: 12,
-  armour: 7
-}
+const armory = [
+  {
+    weaponName: "Long Sword",
+    weaponIcon: `<td><img src="longsword.png"></td>`,
+    weaponLevel: 0,
+    weaponValue: 5
+  },
+  {
+    weaponName: "War Hammer",
+    weaponIcon: `<td><img src="warhammer.png"></td>`,
+    weaponLevel: 10,
+    weaponValue: 15
+  },
+  {
+    weaponName: "Battle Axe",
+    weaponIcon: `<td><img src="battleaxe.png"></td>`,
+    weaponLevel: 0,
+    weaponValue: 20
+  },
+  {
+    weaponName:  "Armour",
+    weaponIcon: `<td><img src="armour.png"></td>`,
+    weaponLevel: 12,
+    weaponValue: 25
+  }
+]
 
 //Regner ut poeng vi har i spillet
-let points = (playerInfo.penger * 5) + (playerWeapon.longSword * 5) + (playerWeapon.warHammer * 15) + (playerWeapon.battleAxe * 20) + (playerWeapon.armour * 25);
+//let points = (playerInfo.penger * 5) + (playerWeapon.longSword * 5) + (playerWeapon.warHammer * 15) + (playerWeapon.battleAxe * 20) + (playerWeapon.armour * 25);
 
 //Skrive ut variablene fra nøkklene
 document.getElementById("playerName").innerHTML = playerInfo.spillerNavn;
 document.getElementById("livesCount").innerHTML = playerInfo.liv;
 document.getElementById("coinsCount").innerHTML = playerInfo.penger;
 document.getElementById("playerLevel").innerHTML = playerInfo.level;
-document.getElementById("pointsCount").innerHTML = points;
+//document.getElementById("pointsCount").innerHTML = points;
 
 //tomme text strenger som senere blir fylt inn
 let textCoins ="";
 let weaponText ="";
 let liveText ="";
 let weaponZeroText ="";
+let armoryHTML = "";
 
+armory.map((test) => {
+ 
+})
+/*
+armory.map((test) => {
+  armoryHTML += `
+  <tr>
+  <td><span id="weapon">${test.weaponName}</span></td>
+  <td>${test.weaponIcon}</td>
+  <td>Level: ${test.weaponLevel}</td>
+  </tr>
+  `
+  document.getElementById("showhide").innerHTML = armoryHTML;
+})
+*/
 //Funkjson for å få armour opp og ned (Tatt funksjonen fra w3schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show)
 function hudHide(){
   var x = document.getElementById("showhide");
@@ -57,7 +93,12 @@ if(playerInfo.liv <= 1){
 }
 document.getElementById("livesCount").innerHTML = liveText;
 
-//Funkjsoner som gjør at hvis våpen er 0 skal det ikke komme opp
+
+
+
+
+
+/*Funkjsoner som gjør at hvis våpen er 0 skal det ikke komme opp
 if(playerWeapon.longSword > 0){
   document.getElementById("showhide").innerHTML += `
   <tr>
@@ -113,3 +154,4 @@ if(playerWeapon.armour > 0){
     document.getElementById("weaponArmour").style.color = "red";
   }
 }
+*/
