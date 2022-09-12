@@ -58,11 +58,11 @@ armory.map((test) => {
  <td id="lvl">Level: ${test.weaponLevel}</td>
  </tr>`
  document.getElementById("showhide").innerHTML = armoryHTML;
- if(test.weaponLevel >= 10){
-   document.getElementById("test").style.color = "gold";
- }
  }
 })
+if(armory.weaponLevel >= 10){
+  armoryHTML.style.color = "gold";
+}
 
 //Funkjson for å få armour opp og ned (Tatt funksjonen fra w3schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show)
 function hudHide(){
