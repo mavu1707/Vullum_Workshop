@@ -60,7 +60,7 @@ armory.map((test) => {
  document.getElementById("showhide").innerHTML = armoryHTML;
  }
 })
-if(armory.weaponLevel >= 10){
+if(armory.weaponLevel >= 10){ //????
   armoryHTML.style.color = "gold";
 }
 
@@ -94,6 +94,7 @@ if(playerInfo.liv <= 1){
 document.getElementById("livesCount").innerHTML = liveText;
 
 /*Funkjsoner som gjør at hvis våpen er 0 skal det ikke komme opp
+Trneger ikke denne koden pga .map funksjonen lenger oppe!
 if(playerWeapon.longSword > 0){
   document.getElementById("showhide").innerHTML += `
   <tr>
