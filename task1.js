@@ -15,7 +15,7 @@ const armory = [
   {
     weaponName: "WarHammer",
     weaponIcon: `<td><img src="warhammer.png"></td>`,
-    weaponLevel: 1,
+    weaponLevel: 3,
     weaponValue: 15
   },
   {
@@ -55,8 +55,7 @@ armory.map((test) => {
   armoryHTML += `<tr>
  <td><span id="test">${test.weaponName}</span></td>
  <td>${test.weaponIcon}</td> 
- <td test.weaponLevel >= 10 ? class="gold" : false
- id="lvl">Level: ${test.weaponLevel}</td>
+  ${test.weaponLevel >= 10 ? `<td class="gold">Level: ${test.weaponLevel}</td>` : `<td>${test.weaponLevel}</td>`}
  </tr>`
  document.getElementById("showhide").innerHTML = armoryHTML;
  }
