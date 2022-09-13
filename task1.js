@@ -59,8 +59,10 @@ armory.map((test) => {
  </tr>`
  document.getElementById("showhide").innerHTML = armoryHTML;
  }
-  if(armory.weaponLevel >= 10){ //????
+  if(armory.weaponLevel >= 10){ //????Hvordna kalle på funksjonen legge til i hmtl ??
     document.getElementsByClassName('gold');
+  }else{
+    //WHite?
   }
 })
 
@@ -94,6 +96,29 @@ if(playerInfo.liv <= 1){
   document.getElementById("livesCount").style.color = "gold";
 }
 document.getElementById("livesCount").innerHTML = liveText;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Funkjsoner som gjør at hvis våpen er 0 skal det ikke komme opp
 Trneger ikke denne koden pga .map funksjonen lenger oppe!
