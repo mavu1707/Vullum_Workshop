@@ -54,16 +54,12 @@ armory.map((test) => {
  if(test.weaponLevel > 0){
   armoryHTML += `<tr>
  <td><span id="test">${test.weaponName}</span></td>
- <td>${test.weaponIcon}</td>
- <td id="lvl">Level: ${test.weaponLevel}</td>
+ <td>${test.weaponIcon}</td> 
+ <td test.weaponLevel >= 10 ? class="gold" : false
+ id="lvl">Level: ${test.weaponLevel}</td>
  </tr>`
  document.getElementById("showhide").innerHTML = armoryHTML;
  }
-  if(armory.weaponLevel >= 10){ //????Hvordna kalle på funksjonen legge til i hmtl ??
-    document.getElementsByClassName('gold');
-  }else{
-    //WHite?
-  }
 })
 
 
