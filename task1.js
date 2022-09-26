@@ -2,7 +2,7 @@
 const playerInfo = {
   spillerNavn: "Markus",
   liv: 5,
-  penger: 20,
+  //penger: 20,
   level: 12
 }
 const armory = [
@@ -38,9 +38,15 @@ let points = (armory[0].weaponLevel*armory[0].weaponValue) + (armory[1].weaponLe
 //Skrive ut variablene fra nøkklene
 document.getElementById("playerName").innerHTML = playerInfo.spillerNavn;
 document.getElementById("livesCount").innerHTML = playerInfo.liv;
-document.getElementById("coinsCount").innerHTML = playerInfo.penger;
+//document.getElementById("coinsCount").innerHTML = playerInfo.penger;
 document.getElementById("playerLevel").innerHTML = playerInfo.level;
 document.getElementById("pointsCount").innerHTML = points;
+
+function modifyCoins(modifyer){
+  
+}
+
+modifyCoins(3)
 
 //tomme text strenger som senere blir fylt inn
 let textCoins ="";

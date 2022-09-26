@@ -48,6 +48,15 @@ div, section, aside, article, span {
     padding: 5px;
 }
 
+#playarea {
+    width: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    margin: auto;
+    background:rgba(0, 0, 0, 0.8);
+    position:relative;
+}
+
 .gold{
     color: gold;
 }
