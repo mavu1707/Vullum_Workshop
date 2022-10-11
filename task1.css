@@ -58,6 +58,18 @@ div, section, aside, article, span {
     position:relative;
 }
 
+canvas{
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+}
+
 .gold {
     color: gold;
 }

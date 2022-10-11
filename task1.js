@@ -8,6 +8,39 @@
 //PLAYERNAME - INITITAL PRINT
 document.getElementById("playername").innerHTML = gameConfig.playerName
 
+//CANVAS
+const canvas = document.getElementById("gamecanvas")
+canvas.width = 800
+canvas.height = 600
+const ctx = canvas.getContext("2d")
+
+//randomisering av firkanter
+function randomMinMax (min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+const enemy = {
+  fillcolor: "#B61010",
+  width: 20,
+  height: 60
+}
+
+function drawEnemy() {
+  ctx.beginPath()
+  ctx.fillStyle = enemy.fillcolor
+  ctx.fillRect(x, y, enemy.width, enemy.height)
+  ctx.closePath()
+}
+
+//Startpunkt for enemy
+let x = 880
+let y = 270
+
+function drawElements(){
+  drawEnemy()
+  requestAnimationFrame(drawElements)
+}
+requestAnimationFrame(drawElements);
 //COINS - INITIAL PRINT
 let coinsPrint = ""
 if(gameConfig.coins > 0) {
@@ -78,3 +111,4 @@ document.getElementById("showhide").innerHTML = armoryHTML
 //WS3, Oppg 6: Oppdatert points med verdi fra gameConfig-objektet og utregning via armoryPoints
 let points = (gameConfig.coins * 5) + armoryPoints
 document.getElementById("points-count").innerHTML = points
+
