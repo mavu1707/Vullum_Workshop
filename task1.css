@@ -15,9 +15,10 @@ div, section, aside, article, span {
     height: 100vh;
     background-color: #000;
     color: #fff;
-    background-image: url("background.png");
+    background-image: url("img/background.png");
     background-repeat: repeat;
     position: relative;
+    padding-top: 100px;
 }
 
 #hud-top {
@@ -57,6 +58,6 @@ div, section, aside, article, span {
     position:relative;
 }
 
-.gold{
+.gold {
     color: gold;
 }

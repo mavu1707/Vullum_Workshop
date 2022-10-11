@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Workshop 1: Variabler</title>
+    <title>JS Workshop 5: Canvas</title>
     <link href="task1.css" rel="stylesheet" media="all">
 </head>
 <body>
     <div id="gamearea">
         <section id="hud-top">
-            <div id="lvl">Level:<span id="playerLevel">200</span></div>
-            <div id="lives"><img src="potions.png" /> <span id="livesCount">10</span></div>
-            <div id="coins"><img src="coins.png" /> <span id="coinsCount">10</span></div>
+            <div id="lives"><img src="img/potions.png" /> <span id="lives-count">0</span></div>
+            <div id="coins"><img src="img/coins.png" /> <span id="coins-count">0</span></div>
             <div id="player">
-                <img src="person.png" />
-                <span id="playerName">Mas</span>
+                <img src="img/person.png" />
+                <span id="playername">Marius</span>
             </div>
-            <div id="points"><img src="points.png" /> <span id="pointsCount">0</span></div>
+            <div id="points"><img src="img/points.png" /> <span id="points-count">0</span></div>
+            <div id="level">Level: <span id="level-count">0</span></div>
         </section>
         <aside id="hud-inventory">
-            <button onclick ="hudHide()">...</button> <!--Lagt inn fra w3schools, link se .js-->
             <h3>Armory</h3>
             <table id="showhide">
+                <!-- 
+                JavaScript vil fylle tabellen
+                -->
             </table>
         </aside>
     </div>
+
     <script src="task1.js"></script>
 </body>
 </html>
