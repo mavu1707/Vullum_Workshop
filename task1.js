@@ -14,7 +14,7 @@ canvas.width = 800
 canvas.height = 600
 const ctx = canvas.getContext("2d")
 
-//randomisering av firkanter
+//randomisering
 function randomMinMax (min, max){
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -35,12 +35,38 @@ function drawEnemy(){
   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height)
   ctx.closePath()
 }
+/*
+const coins = []
 
+for(i = 0; i < 5; i++){
+  coins.push({
+    color: "gold",
+    x: randomMinMax(0, canvas.height),
+    y: randomMinMax(0, canvas.height),
+    radius: 10,
+    startvinkel: 0,
+    sluttvinkel: 2 * Math.PI
+  })
+}
+
+function drawCoin(x, y, r, stv, slv){
+  beginPath()
+  ctx.fillStyle = "gold"
+  ctx.arc(x, x, y, r, stv, slv )
+  closePath()
+}
+*/
+
+//Funksjon som tegner opp animasjonen
 function drawAnimationEnemy(){
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   //Kaller på enemyfunksjonen og den tegner opp enemy
   drawEnemy(enemy.x, enemy.y)
-
+/*
+  coins.map (coin =>{
+    drawCoin(coin.x, coin.y, coin.radius, coin.stv, coin.slv)
+  })
+*/
   enemy.x = enemy.x + 1
   enemy.y = enemy.y
 
@@ -48,6 +74,7 @@ function drawAnimationEnemy(){
 }
 
 requestAnimationFrame(drawAnimationEnemy)
+
 
 //COINS - INITIAL PRINT
 let coinsPrint = ""
