@@ -37,7 +37,7 @@ function drawEnemy(){
 }
 /*
 const coins = []
-
+*/
 for(i = 0; i < 5; i++){
   coins.push({
     color: "gold",
@@ -49,13 +49,14 @@ for(i = 0; i < 5; i++){
   })
 }
 
-function drawCoin(x, y, r, stv, slv){
+function drawCoin(x,y,r){
   beginPath()
   ctx.fillStyle = "gold"
-  ctx.arc(x, x, y, r, stv, slv )
+  ctx.arc(coins.x, coins.y, coins.r, stv, slv )
+  ctx.fill()
   closePath()
 }
-*/
+
 
 //Funksjon som tegner opp animasjonen
 function drawAnimationEnemy(){
