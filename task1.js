@@ -35,45 +35,57 @@ function drawEnemy(){
   ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height)
   ctx.closePath()
 }
-/*
+
+//tom array, det blir lagt til verdier her senere
 const coins = []
-*/
-for(i = 0; i < 5; i++){
+
+//Forteller hvor mange elementer som skal bli lagt inn i arrayen coins
+for(let i = 0; i < 5; i++){
   coins.push({
-    color: "gold",
-    x: randomMinMax(0, canvas.height),
-    y: randomMinMax(0, canvas.height),
-    radius: 10,
-    startvinkel: 0,
-    sluttvinkel: 2 * Math.PI
+    x: randomMinMax(0, canvas.width),
+    y: randomMinMax(0, canvas.width),
+    r: 10,
+    o: 0,
+    m: 2 * Math.PI
   })
 }
 
-function drawCoin(x,y,r){
-  beginPath()
-  ctx.fillStyle = "gold"
-  ctx.arc(coins.x, coins.y, coins.r, stv, slv )
-  ctx.fill()
-  closePath()
+//tegner opp sirkelen
+function drawCircle(x,y,radius){
+    ctx.beginPath()
+    ctx.fillStyle = "gold"
+    ctx.arc(x, y, radius, 0, 2 * Math.PI)
+    ctx.fill()
+    ctx.closePath()
 }
 
+//.map for å gå igjennom den tomme arrayen flere helt til bunnen
+function coinMap(){
+  coins.map(test =>{
+    drawCircle(test.x, test.y, test.r, test.o, test.m)
+  })
+}
 
 //Funksjon som tegner opp animasjonen
 function drawAnimationEnemy(){
+  //Klarerer hele canvaset
   ctx.clearRect(0, 0, canvas.width, canvas.height)
+
   //Kaller på enemyfunksjonen og den tegner opp enemy
   drawEnemy(enemy.x, enemy.y)
-/*
-  coins.map (coin =>{
-    drawCoin(coin.x, coin.y, coin.radius, coin.stv, coin.slv)
-  })
-*/
+
+  //Kaller på coins og tegner opp coins
+  coinMap()
+
+  //Animasjonsverdiene til enemy, enemy skal gå +1 på X-aksen mens bli stående langs y-aksen
   enemy.x = enemy.x + 1
   enemy.y = enemy.y
 
+  //For å tegne animasjonen
   requestAnimationFrame(drawAnimationEnemy)
 }
 
+//kaller på animasjonen
 requestAnimationFrame(drawAnimationEnemy)
 
 
