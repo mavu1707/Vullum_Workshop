@@ -40,7 +40,7 @@ function drawEnemy(){
 const coins = []
 
 //Forteller hvor mange elementer som skal bli lagt inn i arrayen coins
-for(let i = 0; i < 5; i++){
+for(i = 0; i < 5; i++){
   coins.push({
     x: randomMinMax(0, canvas.width),
     y: randomMinMax(0, canvas.width),
