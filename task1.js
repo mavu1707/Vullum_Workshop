@@ -19,28 +19,26 @@ function randomMinMax (min, max){
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+let x = 0
+let y = 20
+//Array med infromasjon som vi kan hente ut for å få det mere dynamisk på enemy funksjonen
 const enemy = {
   fillcolor: "#B61010",
   width: 20,
   height: 60
 }
 
-function drawEnemy() {
+//Funksjonen som tegner opp enemy i canvaset
+function drawEnemy(){
   ctx.beginPath()
   ctx.fillStyle = enemy.fillcolor
   ctx.fillRect(x, y, enemy.width, enemy.height)
   ctx.closePath()
 }
 
-//Startpunkt for enemy
-let x = 880
-let y = 270
+//Kaller på enemyfunksjonen og den tegner opp enemy
+drawEnemy()
 
-function drawElements(){
-  drawEnemy()
-  requestAnimationFrame(drawElements)
-}
-requestAnimationFrame(drawElements);
 //COINS - INITIAL PRINT
 let coinsPrint = ""
 if(gameConfig.coins > 0) {
