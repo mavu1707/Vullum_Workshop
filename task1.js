@@ -73,10 +73,7 @@ function drawAnimationEnemy(){
 
   //Kaller på enemyfunksjonen og den tegner opp enemy
   drawEnemy(enemy.x, enemy.y)
-
-  //Kaller på coins og tegner opp coins
   coinMap()
-
   //Animasjonsverdiene til enemy, enemy skal gå +1 på X-aksen mens bli stående langs y-aksen
   enemy.x = enemy.x + 1
   enemy.y = enemy.y
@@ -87,7 +84,6 @@ function drawAnimationEnemy(){
 
 //kaller på animasjonen
 requestAnimationFrame(drawAnimationEnemy)
-
 
 //COINS - INITIAL PRINT
 let coinsPrint = ""
