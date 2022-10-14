@@ -73,13 +73,16 @@ function drawAnimationEnemy(){
 
   //Kaller på enemyfunksjonen og den tegner opp enemy
   drawEnemy(enemy.x, enemy.y)
+  drawEnemy(enemy.x, enemy.y)
+  
+  coinMap()
   coinMap()
   //Animasjonsverdiene til enemy, enemy skal gå +1 på X-aksen mens bli stående langs y-aksen
   enemy.x = enemy.x + 1
   enemy.y = enemy.y
 
   //For å tegne animasjonen
-  requestAnimationFrame(drawAnimationEnemy)
+  //requestAnimationFrame(drawAnimationEnemy)
 }
 
 //kaller på animasjonen
