@@ -66,6 +66,12 @@ function coinMap(){
   })
 }
 
+function test(){
+  if(canvas.width + enemy.width < enemy.x){
+    requestAnimationFrame(drawAnimationEnemy)
+  }
+}
+
 //Funksjon som tegner opp animasjonen
 function drawAnimationEnemy(){
   //Klarerer hele canvaset
@@ -76,15 +82,14 @@ function drawAnimationEnemy(){
   drawEnemy(enemy.x, enemy.y)
   
   coinMap()
-  coinMap()
+  test()
   //Animasjonsverdiene til enemy, enemy skal gå +1 på X-aksen mens bli stående langs y-aksen
   enemy.x = enemy.x + 1
   enemy.y = enemy.y
 
   //For å tegne animasjonen
-  //requestAnimationFrame(drawAnimationEnemy)
+  requestAnimationFrame(drawAnimationEnemy)
 }
-
 //kaller på animasjonen
 requestAnimationFrame(drawAnimationEnemy)
 
