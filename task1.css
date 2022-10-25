@@ -21,6 +21,13 @@ div, section, aside, article, span {
     padding-top: 100px;
 }
 
+#gamearea-canvas {
+    background: #000;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20rem;
+}
+
 #hud-top {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
