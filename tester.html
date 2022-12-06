@@ -5,7 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Workshop 5: Canvas</title>
-    <link href="task5.css" rel="stylesheet" media="all">
+    <link href="test.css" rel="stylesheet" media="all">
+    <style>
+        #gamearea-canvas {
+            background: #000;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div id="gamearea">
@@ -19,6 +26,7 @@
             <div id="points"><img src="img/points.png" /> <span id="points-count">0</span></div>
             <div id="level">Level: <span id="level-count">0</span></div>
         </section>
+        <canvas id="gamearea-canvas"></canvas>
         <aside id="hud-inventory">
             <h3>Armory</h3>
             <table id="showhide">
@@ -39,6 +47,12 @@
         }
         //PLAYERNAME - INITITAL PRINT
         document.getElementById("playername").innerHTML = gameConfig.playerName
+
+        //WS5.1: Initiere Canvas:
+        const canvas = document.getElementById("gamearea-canvas")
+        canvas.width = 800
+        canvas.height = 600
+        const ctx = canvas.getContext("2d")
         
         //COINS - INITIAL PRINT
         let coinsPrint = ""
@@ -110,6 +124,75 @@
         //WS3, Oppg 6: Oppdatert points med verdi fra gameConfig-objektet og utregning via armoryPoints
         let points = (gameConfig.coins * 5) + armoryPoints
         document.getElementById("points-count").innerHTML = points
+
+        //RandomMinMax-funksjon:
+        function randomMinMax(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        const enemy = {
+            width: 20,
+            height: 60,
+            x: 0,
+            y: randomMinMax(0, canvas.height - 60),
+            color: "#b61010"
+        }
+        //WS5, 2: Tegne en fiende
+        //WS5, 3: Samle tegning i en funksjon
+        function drawEnemy() {
+            ctx.beginPath()
+            ctx.fillStyle = enemy.color
+            ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height)
+            ctx.closePath()
+        }
+
+        //Variabel for coinRadius:
+        const coinRadius = 5;
+        //WS5, 5: Tegne opp gullmynter
+        const coinsArray = []
+        //For-løkke for å dytte fem mynt-posisjoner inn i arrayen
+        //https://lms.webtricks.blog/kurs/innforing-i-programmering/lokker/for-lokker
+        for(let teller = 1; teller <= 5; teller++) {
+            coinsArray.push({
+                x: randomMinMax(coinRadius, canvas.width - coinRadius),
+                y: randomMinMax(coinRadius, canvas.height - coinRadius)
+            })
+        }
+        console.log(coinsArray)
+
+
+        function drawElements() {
+            //Tømme canvas:
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            //Tegn fienden
+            drawEnemy()
+            //Oppdater fiendens x-verdi:
+            enemy.x = enemy.x + 5
+            //Test for å sjekke om fienden er på utsiden av brettet:
+            if(enemy.x >= canvas.width) {
+                enemy.x = 0
+                enemy.y = randomMinMax(0, canvas.height - enemy.height)
+                console.log("Fienden er utenfor canvas. X: " + enemy.x)
+
+
+            }
+            //WS5,5: Tegne opp gullmynter
+            coinsArray.map(pos => {
+                ctx.beginPath()
+                ctx.fillStyle = "gold"
+                ctx.arc(pos.x, pos.y, coinRadius, 0, 2 * Math.PI)
+                ctx.fill()
+                ctx.closePath()
+
+                //Her må vi sjekke kollisjon med helten.
+                //Hvis kollisjon: Gi ny X og Y-posisjon, og oppdater poeng/pengeteller
+            })
+            //Tegn neste frame:
+            requestAnimationFrame(drawElements)
+        }
+
+        drawElements()
+        
     </script>
 </body>
 </html>
